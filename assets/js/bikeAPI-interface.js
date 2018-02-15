@@ -11,9 +11,10 @@ $(document).ready(function() {
 
     newSearch.then(function(response) {
       let body = JSON.parse(response);
-      $('#result').text(body.bikes[0].title);
+      $('#result').append("<li>" + body.bikes[0].title + "</li>");
+      $('#result').append("<li>" + body.bikes[0].id + "</li>");
     }, function (error) {
       $('.showErrors').text('There was an error: ${error.message}');
+    });
   });
-});
 });
