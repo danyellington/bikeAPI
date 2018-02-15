@@ -12,11 +12,11 @@ $(document).ready(function() {
     newSearch.then(function(response) {
       let body = JSON.parse(response);
       for (let i = 0; i < body.bikes.length; i++) {
-      $('#result').append("<div class='box'>" + "<h2>" + body.bikes[i].title + "</h2>" + "<li>" + "ID #" + body.bikes[i].id + "</li>" + "</div>");
+      $('#result').append("<div>" + "<h2>" + body.bikes[i].title + "</h2>" + "<br>" + "<p>" + "ID #" + body.bikes[i].id + "</p>");
       if (body.bikes[i].thumb === null) {
-         $('#result').append("<p><em> No image found </em></p>");
+         $('#result').append("<p><em> No image found </em></p>" + "<hr>" + "</div>");
        } else {
-           $('#result').append('<img src =' + body.bikes[i].thumb + '>');
+           $('#result').append('<img class="bikeImg" src=' + body.bikes[i].thumb + '>' + "<hr>" + "</div>");
        }
     }
     }, function (error) {
